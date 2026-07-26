@@ -17,6 +17,10 @@ this repo holds just your data — memory files and, optionally, your global gui
 
 ## Getting started
 
+> Already created your memories repo on another machine? **Don't use the template
+> again** — clone your existing repo to `~/.claude/memory` instead (see the kit README's
+> "Every other machine" section). One repo, every machine.
+
 1. Click **Use this template** → create your own **private** repo (it will hold personal data).
 2. On your machine:
 
