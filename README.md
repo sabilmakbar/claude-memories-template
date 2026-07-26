@@ -1,0 +1,46 @@
+# claude-memories-template
+
+Template for a private Claude Code memory repo, ready to pair with
+[claude-memory-kit](https://github.com/sabilmakbar/claude-memory-kit). The kit provides
+the machinery (index engine, hooks, commit guardrail, feedback miner, review skills);
+this repo holds just your data — memory files and, optionally, your global guidelines.
+
+## What's in here
+
+| File | What it is |
+|------|-----------|
+| `user_example.md` | Who you are — role, background, working style. Rename and fill in. |
+| `feedback_example.md` | One working-preference rule in the What/Why/How format. Copy the shape for every new rule. |
+| `CLAUDE.md` | Optional: global guidelines loaded verbatim into every session. Symlink it to `~/.claude/CLAUDE.md`. |
+| `MEMORY.md` | The always-loaded index. Generated from the files on every prompt — never edit by hand. |
+| `.gitignore` | Keeps machine-local state and kit-seeded convention files out of sync. |
+
+## Getting started
+
+1. Click **Use this template** → create your own **private** repo (it will hold personal data).
+2. On your machine:
+
+```bash
+git clone https://github.com/sabilmakbar/claude-memory-kit.git ~/claude-memory-kit
+git clone <your-new-repo> ~/.claude/memory
+~/claude-memory-kit/install.sh
+ln -sfn ~/.claude/memory/CLAUDE.md ~/.claude/CLAUDE.md   # optional
+```
+
+The kit's installer deploys its hooks and skills, seeds the memory-authoring conventions,
+and wires this repo's commit guardrail automatically. Start a new Claude Code session and
+you're done.
+
+3. Rename the example files to yours (`user_<you>.md`), rewrite their contents, and
+   commit. The guardrail checks every commit for naming/frontmatter conventions and
+   private-data leaks (emails, home paths — add employer terms to the kit's
+   `denylist.local`).
+
+## Conventions (enforced by the guardrail)
+
+- Filename prefix `user_` / `feedback_` / `project_`; `name:` in frontmatter equals the
+  filename slug; one-line `description:` required.
+- Body = the rule itself, then `**Why:**` and `**How to apply:**`. Generalized — no
+  incident stories, no employer names, no machine paths.
+- `MEMORY.md` is tracked but the installer marks it `skip-worktree` locally, so index
+  churn never shows up in your diffs.

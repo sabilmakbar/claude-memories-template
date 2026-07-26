@@ -1,0 +1,7 @@
+# machine-local memory state
+.last-review
+.last-cleanup
+
+# provided by claude-memory-kit (seeded on install, kit-versioned)
+feedback_memory_conventions.md
+feedback_memory_generality.md
