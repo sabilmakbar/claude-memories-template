@@ -48,3 +48,12 @@ you're done.
   incident stories, no employer names, no machine paths.
 - `MEMORY.md` is tracked but the installer marks it `skip-worktree` locally, so index
   churn never shows up in your diffs.
+
+## Review markers (multi-machine)
+
+Periodic memory reviews are recorded as ordinary commits whose subject starts
+`memory review (<machine-label>): …` — the kit's review skill writes them (an empty
+commit when nothing changed). The session-start reminder reads these markers straight
+from git history: a review on **any** machine silences the reminder everywhere once
+pushed/pulled, while each machine's own mount-local memories still want a marker from
+that machine's label. No state files to manage — history is the single source of truth.
