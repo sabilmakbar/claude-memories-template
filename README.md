@@ -11,7 +11,7 @@ this repo holds just your data — memory files and, optionally, your global gui
 |------|-----------|
 | `user_example.md` | Who you are — role, background, working style. Rename and fill in. |
 | `feedback_example.md` | One working-preference rule in the What/Why/How format. Copy the shape for every new rule. |
-| `CLAUDE.md` | Optional: global guidelines loaded verbatim into every session. Symlink it to `~/.claude/CLAUDE.md`. |
+| `AGENTS.md` | Optional: global guidelines loaded into every session. Import it from `~/.claude/CLAUDE.md` (see below). |
 | `MEMORY.md` | The always-loaded index. Generated from the files on every prompt — never edit by hand. |
 | `.gitignore` | Keeps machine-local state and kit-seeded convention files out of sync. |
 
@@ -28,7 +28,7 @@ this repo holds just your data — memory files and, optionally, your global gui
 git clone https://github.com/sabilmakbar/claude-memory-kit.git ~/claude-memory-kit
 git clone <your-new-repo> ~/.claude/memory
 ~/claude-memory-kit/install.sh
-ln -sfn ~/.claude/memory/CLAUDE.md ~/.claude/CLAUDE.md   # optional
+printf '@~/.claude/memory/AGENTS.md\n' > ~/.claude/CLAUDE.md   # optional: global guidelines
 ```
 
 The kit's installer deploys its hooks and skills, seeds the memory-authoring conventions,
