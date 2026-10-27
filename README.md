@@ -35,6 +35,12 @@ The kit's installer deploys its hooks and skills, seeds the memory-authoring con
 and wires this repo's commit guardrail automatically. Start a new Claude Code session and
 you're done.
 
+> **On a work machine:** everything in this repo is meant to be pushed, so keep it to
+> project-agnostic preferences. Facts about your employer's projects, systems, data or
+> colleagues belong in the kit's mount memory (`~/.claude/memory-mounts/`), which never
+> syncs. If your employer does not allow work-derived notes in a personal repo, give this
+> clone no remote, or use a remote your employer approves.
+
 3. Rename the example files to yours (`user_<you>.md`), rewrite their contents, and
    commit. The guardrail checks every commit for naming/frontmatter conventions and
    private-data leaks (emails, home paths — add employer terms to the kit's
